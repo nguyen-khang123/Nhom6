@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - Thời trang Mova</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header'); %>
+        <main class="checkout-main">
+            <section class="checkout-section">
+                <div class="container">
+                    <h1>Chi tiết thanh toán</h1>
+                    <form class="checkout-form">
+                        <div class="form-left">
+                            <div class="form-group">
+                                <label for="firstName">Tên</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Nhập tên của bạn">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Họ</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Nhập họ của bạn">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="address">Địa chỉ</label>
+                                <input type="text" id="address" name="address" placeholder="Nhập địa chỉ của bạn">
+                            </div>
+                            <div class="form-group">
+                                <label for="province">Tỉnh/Thành phố</label>
+                                <select id="province" name="province">
+                                    <option value="">Chọn Tỉnh/Thành phố</option>
+                                    <option value="HCM">Hồ Chí Minh</option>
+                                    <option value="HN">Hà Nội</option>
+                                    <option value="DN">Đà Nẵng</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="district">Quận/Huyện</label>
+                                <select id="district" name="district">
+                                    <option value="">Chọn Quận/Huyện</option>
+                                    <option value="Q1">Quận 1</option>
+                                    <option value="Q2">Quận 2</option>
+                                    <option value="Q2">Quận 3</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="ward">Phường/Xã</label>
+                                <select id="ward" name="ward">
+                                    <option value="">Chọn Phường/Xã</option>
+                                    <option value="P1">Phường 1</option>
+                                    <option value="P2">Phường 2</option>
+                                    <option value="P2">Phường 3</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="phone">Số điện thoại</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn">
+                            </div>
+                        </div>
+
+                        <div class="form-right">
+                            <div class="order-summary">
+                                <div class="order-item">
+                                    <span class="item-label">Sản phẩm</span>
+                                    <span class="item-value">Áo thun nam</span>
+                                </div>
+                                <div class="order-item">
+                                    <span class="item-label"></span>
+                                    <span class="item-value">X 1</span>
+                                </div>
+                                <div class="order-item total">
+                                    <span class="item-label">Tổng cộng</span>
+                                    <span class="item-value">299.000 VNĐ</span>
+                                </div>
+                                <div class="order-item total-final">
+                                    <span class="item-label">Total</span>
+                                    <span class="item-value final-price">299.000 VNĐ</span>
+                                </div>
+                            </div>
+
+                            <div class="payment-methods">
+                                <h4>Vui lòng chọn phương thức thanh toán</h4>
+                                <div class="radio-group">
+                                    <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer"
+                                        checked>
+                                    <label for="bankTransfer">Thanh toán trực tiếp vào tài khoản ngân hàng của chúng
+                                        tôi. Vui lòng sử dụng tên đơn hàng của bạn làm tham chiếu thanh toán. Đơn hàng
+                                        của bạn sẽ không được giao cho đến khi tiền được chuyển vào tài khoản của chúng
+                                        tôi.</label>
+                                </div>
+                                <div class="radio-group">
+                                    <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery">
+                                    <label for="cashOnDelivery">Thanh toán khi nhận hàng</label>
+                                </div>
+                                <div class="radio-group">
+                                    <input type="radio" id="internetBanking" name="paymentMethod"
+                                        value="internetBanking">
+                                    <label for="internetBanking">Thanh toán qua Internet banking</label>
+                                </div>
+                            </div>
+
+                            <p class="privacy-note">
+                                Dữ liệu cá nhân của bạn sẽ được sử dụng để hỗ trợ trải nghiệm của bạn trên toàn bộ trang
+                                web này, để quản lý quyền truy cập vào tài khoản của bạn và cho các mục đích khác được
+                                mô tả trong chính sách bảo mật của chúng tôi.
+                            </p>
+
+                            <button type="submit" class="place-order-btn">ĐẶT HÀNG</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <%- include('partials/footer'); %>
+</body>
+
+</html>

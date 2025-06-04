@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVA - Thời trang | Trang Chủ</title>
+    <link
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+    <main>
+        <section class="hero-slider">
+            <div class="slider-container">
+                <div class="slider-slide active">
+                    <img src="/images/banner1.png" alt="Banner 1">
+                    <div class="slider-content">
+                        <h2>Bộ sưu tập mới 2025</h2>
+                        <p>Khám phá phong cách độc đáo của bạn.</p>
+                        <a href="/shop" class="btn-shop-now">MUA SẮM NGAY</a>
+                    </div>
+                </div>
+    
+                <div class="slider-slide">
+                    <img src="/images/banner2.png" alt="Banner 2">
+                    <div class="slider-content">
+                        <h2>Thời trang dạo phố</h2>
+                        <p>Năng động và cá tính.</p>
+                        <a href="/shop" class="btn-shop-now">XEM NGAY</a>
+                    </div>
+                </div>
+    
+                <div class="slider-slide">
+                    <img src="/images/banner3.png" alt="Banner 3">
+                    <div class="slider-content">
+                        <h2>Ưu đãi hấp dẫn</h2>
+                        <p>Đừng bỏ lỡ các sản phẩm giảm giá.</p>
+                        <a href="/shop" class="btn-shop-now">KHÁM PHÁ</a>
+                    </div>
+                </div>
+            </div>
+    
+            <button class="slider-nav prev">&lt;</button>
+            <button class="slider-nav next">&gt;</button>
+    
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+        <section class="new-collection-section">
+            </section>
+            <section class="categories-section">
+                <div class="category-item">
+                    <img src="/images/3.png" alt="Danh mục Áo">
+                    <p>DANH MỤC ÁO</p>
+                </div>
+                <div class="category-item">
+                    <img src="/images/5.png" alt="Danh mục Quần">
+                    <p>DANH MỤC QUẦN</p>
+                </div>
+            </section>
+            <section class="new-collection-section">
+                <h2>Bộ sưu tập mới</h2>
+                <div class="product-grid">
+                    <% if (products && products.length> 0) { %> <% products.forEach(function(product) { %>
+                            <div class="product-item">
+                                <img src="<%= product.image %>" alt="<%= product.name %>">
+                                <h3>
+                                    <%= product.name %>
+                                </h3>
+                                <p class="product-price">
+                                    <%= product.price.toLocaleString('vi-VN') %> VNĐ
+                                </p> <button class="buy-now-btn">MUA NGAY</button>
+                            </div>
+                            <% }); %>
+                                <% } else { %>
+                                    <p>Hiện không có sản phẩm nào để hiển thị.</p>
+                                    <% } %>
+                </div>
+                <div class="view-more-container">
+                    <button class="view-more-btn">XEM THÊM</button>
+                </div>
+            </section>
+            <section class="large-image-section">
+                <div class="product-grid custom-grid">
+                    <div class="grid-filler"></div> 
+                        <img src="/images/115.png" alt="Girl on car" class="small-banner-img">
+                    </div>
+                </div>
+            </section>
+              
+            <section class="hello-kitty-banner">
+                <img src="/images/n.png" alt="Hello Kitty Promotion" class="full-width-img">
+            </section>
+
+            <section class="blog-section">
+                <h2>Blog về chúng tôi</h2>
+                <div class="blog-grid">
+                    <div class="blog-post">
+                        <img src="/images/baiviet.png" alt="Blog Post 1">
+                        <h3>Tiêu đề bài viết 1</h3>
+                        <p>Mô tả ngắn về bài viết...</p>
+                    </div>
+                    <div class="blog-post">
+                        <img src="/images/baiviet2.png" alt="Blog Post 2">
+                        <h3>Tiêu đề bài viết 2</h3>
+                        <p>Mô tả ngắn về bài viết...</p>
+                    </div>
+                    <div class="blog-post">
+                        <img src="/images/baiviet3.png" alt="Blog Post 3">
+                        <h3>Tiêu đề bài viết 3</h3>
+                        <p>Mô tả ngắn về bài viết...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="feedback-section">
+                <h2>Feedback khách hàng</h2>
+                <div class="feedback-grid">
+                    <div class="feedback-item">
+                        <img src="/images/fb1.png" alt="Feedback 1">
+                        <p>"Sản phẩm rất ưng ý!"</p>
+                        <span>- Tên khách hàng 1</span>
+                    </div>
+                    <div class="feedback-item">
+                        <img src="/images/fb2.png" alt="Feedback 2">
+                        <p>"Dịch vụ tuyệt vời!"</p>
+                        <span>- Tên khách hàng 2</span>
+                    </div>
+                    <div class="feedback-item">
+                        <img src="/images/fb3.png" alt="Feedback 3">
+                        <p>"Giao hàng nhanh chóng!"</p>
+                        <span>- Tên khách hàng 3</span>
+                    </div>
+                    <div class="feedback-item">
+                        <img src="/images/fb4.png" alt="Feedback 4">
+                        <p>"Chất lượng sản phẩm đúng như mô tả!"</p>
+                        <span>- Tên khách hàng 4</span>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <%- include('partials/footer'); %>
+            <script src="/js/script.js"></script>
+            <script src="/js/slider.js"></script>
+</body>
+
+</html>

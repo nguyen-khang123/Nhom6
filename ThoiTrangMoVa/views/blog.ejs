@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Thời trang Mova</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header'); %>
+        <main>
+            <section class="blog-hero">
+                <div class="container">
+                    <h1>Bài viết mới nhất</h1>
+                    <p>Cập nhật những xu hướng thời trang, mẹo phối đồ và tin tức từ Mova.</p>
+                </div>
+            </section>
+            <section class="blog-posts-list">
+                <div class="container blog-layout">
+                    <div class="blog-main-content">
+                        <div class="blog-post-item-main">
+                            <img src="/images/baiviet.png" alt="Ảnh bài viết chính 1">
+                            <div class="post-content">
+                                <h3>Tiêu đề bài viết 1: 10 Xu hướng thời trang Xuân/Hè 2025</h3>
+                                <p class="post-meta">Ngày đăng: 01/06/2025 | Bởi: Mova Team</p>
+                                <p>Khám phá những xu hướng hot nhất cho mùa Xuân/Hè năm nay, từ màu sắc, chất liệu đến kiểu dáng.
+                                    Bài viết này sẽ đưa bạn đi sâu vào từng chi tiết, giúp bạn cập nhật tủ đồ một cách thông minh và
+                                    phong cách nhất. Đừng bỏ lỡ những gợi ý từ các nhà thiết kế hàng đầu!</p>
+                                <a href="/blog-post-1" class="read-more-btn">Đọc thêm</a>
+                            </div>
+                        </div>
+                        <div class="blog-post-item-main">
+                            <img src="/images/baiviet2.png" alt="Ảnh bài viết chính 2">
+                            <div class="post-content">
+                                <h3>Tiêu đề bài viết 2: Mẹo phối đồ công sở sành điệu</h3>
+                                <p class="post-meta">Ngày đăng: 28/05/2025 | Bởi: Mova Team</p>
+                                <p>Bí quyết để luôn nổi bật và tự tin tại nơi làm việc với những gợi ý phối đồ thông minh. Từ những
+                                    bộ cánh thanh lịch đến cách mix & match phụ kiện, chúng tôi sẽ chỉ cho bạn cách tạo ấn tượng
+                                    mạnh mẽ với đồng nghiệp và đối tác.</p>
+                                <a href="/blog-post-2" class="read-more-btn">Đọc thêm</a>
+                            </div>
+                        </div>
+                        <div class="blog-post-item-main">
+                            <img src="/images/baiviet3.png" alt="Ảnh bài viết chính 2">
+                            <div class="post-content">
+                                <h3>Tiêu đề bài viết 2: Mẹo phối đồ công sở sành điệu</h3>
+                                <p class="post-meta">Ngày đăng: 28/05/2025 | Bởi: Mova Team</p>
+                                <p>Bí quyết để luôn nổi bật và tự tin tại nơi làm việc với những gợi ý phối đồ thông minh. Từ những
+                                    bộ cánh thanh lịch đến cách mix & match phụ kiện, chúng tôi sẽ chỉ cho bạn cách tạo ấn tượng
+                                    mạnh mẽ với đồng nghiệp và đối tác.</p>
+                                <a href="/blog-post-2" class="read-more-btn">Đọc thêm</a>
+                            </div>
+                        </div>
+            
+                    </div>
+            
+                    <div class="blog-sidebar">
+                        <h4>Bài viết liên quan</h4>
+                        <div class="related-posts">
+                            <a href="/blog-post-3" class="related-post-item">
+                                <img src="/images/p1.png" alt="Ảnh nhỏ bài viết 3">
+                                <p>5 cách làm mới tủ đồ cũ</p>
+                                <p>23.5.2025</p>
+                            </a>
+                            <a href="/blog-post-4" class="related-post-item">
+                                <img src="/images/p2.png" alt="Ảnh nhỏ bài viết 4">
+                                <p>Phụ kiện không thể thiếu mùa hè</p>
+                                <p>23.5.2025</p>
+                            </a>
+                            <a href="/blog-post-5" class="related-post-item">
+                                <img src="/images/p3.png" alt="Ảnh nhỏ bài viết 5">
+                                <p>Hướng dẫn chọn giày phù hợp</p>
+                                <p>23.5.2025</p>
+                            </a>
+                            <a href="/blog-post-5" class="related-post-item">
+                                <img src="/images/p4.png" alt="Ảnh nhỏ bài viết 5">
+                                <p>Hướng dẫn chọn giày phù hợp</p>
+                                <p>23.5.2025</p>
+                            </a>
+                        </div>
+            
+                        <h4 class="sidebar-heading">Danh mục</h4>
+                        <ul class="category-list">
+                            <li><a href="#">Thời trang nữ</a></li>
+                            <li><a href="#">Thời trang nam</a></li>
+                            <li><a href="#">Phụ kiện</a></li>
+                            <li><a href="#">Xu hướng</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <%- include('partials/footer'); %>
+</body>
+
+</html>
