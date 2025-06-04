@@ -1,0 +1,88 @@
+[{
+  "_id": {
+    "$oid": "6840615e7216d56f861e37c8"
+  },
+  "name": "Áo thun thời tran",
+  "price": 280000,
+  "image": "/images/34.png",
+  "description": "Áo sơ mi caro nam chất liệu cotton thoáng mát, phong cách trẻ trung.",
+  "category": "Áo",
+  "stock": 80
+},
+{
+  "_id": {
+    "$oid": "684073147216d56f861e37cf"
+  },
+  "name": "Quần Jean Mới",
+  "price": 350000,
+  "image": "/images/35.png",
+  "description": "Váy ngắn nữ.",
+  "category": "Quần",
+  "stock": 50
+},
+{
+  "_id": {
+    "$oid": "684073d27216d56f861e37d0"
+  },
+  "name": "Áo thun nam",
+  "price": 280000,
+  "image": "/images/2.png",
+  "description": "Áo sơ mi caro nam chất liệu cotton thoáng mát, phong cách trẻ trung.",
+  "category": "Áo",
+  "stock": 80
+},
+{
+  "_id": {
+    "$oid": "684073f47216d56f861e37d1"
+  },
+  "name": "Áo thun đen",
+  "price": 280000,
+  "image": "/images/1.png",
+  "description": "Áo sơ mi caro nam chất liệu cotton thoáng mát, phong cách trẻ trung.",
+  "category": "Áo",
+  "stock": 60
+},
+{
+  "_id": {
+    "$oid": "684074167216d56f861e37d2"
+  },
+  "name": "Áo thun đen",
+  "price": 199000,
+  "image": "/images/3.png",
+  "description": "Áo sơ mi caro nam chất liệu cotton thoáng mát, phong cách trẻ trung.",
+  "category": "Áo",
+  "stock": 40
+},
+{
+  "_id": {
+    "$oid": "6840742b7216d56f861e37d3"
+  },
+  "name": "Quần jean nam",
+  "price": 399000,
+  "image": "/images/3.png",
+  "description": "Áo sơ mi caro nam chất liệu cotton thoáng mát, phong cách trẻ trung.",
+  "category": "Quần",
+  "stock": 40
+},
+{
+  "_id": {
+    "$oid": "684074537216d56f861e37d4"
+  },
+  "name": "Quần jean nam dài",
+  "price": 399000,
+  "image": "/images/4.png",
+  "description": "Quần  nam chất liệu cotton thoáng mát, phong cách trẻ trung.",
+  "category": "Quần",
+  "stock": 90
+},
+{
+  "_id": {
+    "$oid": "6840746d7216d56f861e37d5"
+  },
+  "name": "Quần jean nam dài",
+  "price": 299000,
+  "image": "/images/34.png",
+  "description": "Áo  nam chất liệu cotton thoáng mát, phong cách trẻ trung.",
+  "category": "Áo",
+  "stock": 70
+}]
