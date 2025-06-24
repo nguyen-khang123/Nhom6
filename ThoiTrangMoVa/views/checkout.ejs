@@ -3,117 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh toán - Thời trang Mova</title>
+    <title>Thanh toán đơn hàng - MoVa</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <%- include('partials/header'); %>
-        <main class="checkout-main">
-            <section class="checkout-section">
-                <div class="container">
-                    <h1>Chi tiết thanh toán</h1>
-                    <form class="checkout-form">
-                        <div class="form-left">
+    <%- include('partials/header') %>  
+        <main class="checkout-page-content">
+            <div class="checkout-container">
+                <h1>THANH TOÁN</h1> 
+                <div class="checkout-sections">
+                    <div class="checkout-details-wrapper">
+                        <h2>Chi tiết thanh toán</h2>
+                        <form id="checkoutForm" class="checkout-form">
                             <div class="form-group">
-                                <label for="firstName">Tên</label>
-                                <input type="text" id="firstName" name="firstName" placeholder="Nhập tên của bạn">
+                                <label for="customerName">Tên *</label>
+                                <input type="text" id="customerName" name="customerName" required>
                             </div>
                             <div class="form-group">
-                                <label for="lastName">Họ</label>
-                                <input type="text" id="lastName" name="lastName" placeholder="Nhập họ của bạn">
-                            </div>
-                            <div class="form-group full-width">
-                                <label for="address">Địa chỉ</label>
-                                <input type="text" id="address" name="address" placeholder="Nhập địa chỉ của bạn">
+                                <label for="customerLastName">Họ *</label>
+                                <input type="text" id="customerLastName" name="customerLastName" required>
                             </div>
                             <div class="form-group">
-                                <label for="province">Tỉnh/Thành phố</label>
-                                <select id="province" name="province">
+                                <label for="customerEmail">Email *</label>
+                                <input type="email" id="customerEmail" name="customerEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="customerPhone">Số điện thoại *</label>
+                                <input type="tel" id="customerPhone" name="customerPhone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="customerAddress">Địa chỉ *</label>
+                                <input type="text" id="customerAddress" name="customerAddress"
+                                    placeholder="Số nhà, tên đường, thôn, xóm" required>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="customerProvince">Tỉnh/Thành phố *</label>
+                                <select id="customerProvince" name="customerProvince" required>
                                     <option value="">Chọn Tỉnh/Thành phố</option>
-                                    <option value="HCM">Hồ Chí Minh</option>
-                                    <option value="HN">Hà Nội</option>
-                                    <option value="DN">Đà Nẵng</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="district">Quận/Huyện</label>
-                                <select id="district" name="district">
+                                <label for="customerDistrict">Quận/Huyện *</label>
+                                <select id="customerDistrict" name="customerDistrict" required disabled>
                                     <option value="">Chọn Quận/Huyện</option>
-                                    <option value="Q1">Quận 1</option>
-                                    <option value="Q2">Quận 2</option>
-                                    <option value="Q2">Quận 3</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="ward">Phường/Xã</label>
-                                <select id="ward" name="ward">
+                                <label for="customerWard">Phường/Xã *</label>
+                                <select id="customerWard" name="customerWard" required disabled>
                                     <option value="">Chọn Phường/Xã</option>
-                                    <option value="P1">Phường 1</option>
-                                    <option value="P2">Phường 2</option>
-                                    <option value="P2">Phường 3</option>
                                 </select>
                             </div>
-                            <div class="form-group full-width">
-                                <label for="phone">Số điện thoại</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn">
-                            </div>
-                        </div>
-
-                        <div class="form-right">
-                            <div class="order-summary">
-                                <div class="order-item">
-                                    <span class="item-label">Sản phẩm</span>
-                                    <span class="item-value">Áo thun nam</span>
+                            <div class="payment-methods-section">
+                                <h2>Vui lòng chọn phương thức thanh toán</h2>
+                                <div class="payment-option">
+                                    <input type="radio" id="cod" name="paymentMethod" value="cod" checked>
+                                    <label for="cod">
+                                        <strong>Thanh toán khi nhận hàng</strong>
+                                        <p>Thanh toán trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng Mã
+                                            đơn hàng của bạn làm tham chiếu thanh toán. Đơn hàng của bạn sẽ không được giao
+                                            cho đến khi tiền được chuyển vào tài khoản của chúng tôi.</p>
+                                    </label>
                                 </div>
-                                <div class="order-item">
-                                    <span class="item-label"></span>
-                                    <span class="item-value">X 1</span>
-                                </div>
-                                <div class="order-item total">
-                                    <span class="item-label">Tổng cộng</span>
-                                    <span class="item-value">299.000 VNĐ</span>
-                                </div>
-                                <div class="order-item total-final">
-                                    <span class="item-label">Total</span>
-                                    <span class="item-value final-price">299.000 VNĐ</span>
+                                <div class="payment-option">
+                                    <input type="radio" id="bank_transfer_qr" name="paymentMethod" value="bank_transfer_qr">
+                                    <label for="bank_transfer_qr">
+                                        <strong>Thanh toán qua Internet banking</strong>
+                                        <p>Dữ liệu cá nhân của bạn sẽ được sử dụng để hỗ trợ trải nghiệm của bạn trên toàn
+                                            bộ trang web này, để quản lý quyền truy cập vào tài khoản của bạn và cho các mục
+                                            đích khác được mô tả trong chính sách bảo mật của chúng tôi.</p>
+                                    </label>
                                 </div>
                             </div>
-
-                            <div class="payment-methods">
-                                <h4>Vui lòng chọn phương thức thanh toán</h4>
-                                <div class="radio-group">
-                                    <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer"
-                                        checked>
-                                    <label for="bankTransfer">Thanh toán trực tiếp vào tài khoản ngân hàng của chúng
-                                        tôi. Vui lòng sử dụng tên đơn hàng của bạn làm tham chiếu thanh toán. Đơn hàng
-                                        của bạn sẽ không được giao cho đến khi tiền được chuyển vào tài khoản của chúng
-                                        tôi.</label>
-                                </div>
-                                <div class="radio-group">
-                                    <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery">
-                                    <label for="cashOnDelivery">Thanh toán khi nhận hàng</label>
-                                </div>
-                                <div class="radio-group">
-                                    <input type="radio" id="internetBanking" name="paymentMethod"
-                                        value="internetBanking">
-                                    <label for="internetBanking">Thanh toán qua Internet banking</label>
-                                </div>
-                            </div>
-
-                            <p class="privacy-note">
-                                Dữ liệu cá nhân của bạn sẽ được sử dụng để hỗ trợ trải nghiệm của bạn trên toàn bộ trang
-                                web này, để quản lý quyền truy cập vào tài khoản của bạn và cho các mục đích khác được
-                                mô tả trong chính sách bảo mật của chúng tôi.
-                            </p>
-
+    
                             <button type="submit" class="place-order-btn">ĐẶT HÀNG</button>
+                        </form>
+                    </div>
+    
+                    <div class="order-summary-section">
+                        <div class="voucher-section">
+                            <h2>Phiếu giảm giá</h2>
+                            <div class="form-group voucher-input-group">
+                                <input type="text" id="voucherCode" placeholder="Nhập mã giảm giá">
+                                <button type="button" id="applyVoucherBtn">Áp dụng</button>
+                            </div>
+                            <p id="voucherMessage" class="message"></p>
                         </div>
-                    </form>
+    
+                        <h2>Sản phẩm</h2>
+                        <div class="summary-header">
+                            <span class="product-name-header">Sản phẩm</span>
+                            <span class="product-total-header">Tổng cộng</span>
+                        </div>
+                        <ul id="checkoutProductList">
+                        </ul>
+                        <p>Tổng cộng: <span id="subtotal">0 VNĐ</span></p>
+                        <p id="discountRow" style="display: none;">Giảm giá Voucher: <span id="voucherDiscount">0 VNĐ</span>
+                        </p>
+                        <p class="final-total">Tổng: <span id="finalTotal">0 VNĐ</span></p>
+                    </div>
                 </div>
-            </section>
+            </div>
         </main>
-        <%- include('partials/footer'); %>
-</body>
+    
+        <%- include('partials/footer') %>
+    
+            <div id="qrModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2>Quét mã QR để thanh toán</h2>
+                    <p>Vui lòng chuyển khoản chính xác số tiền: <span id="qrAmount">0 VNĐ</span></p>
+                    <div class="qr-code-display">
+                        <img id="qrImage" src="/images/placeholder-qr.png" alt="QR Code"
+                            style="max-width: 200px; margin: 20px auto; display: block;">
+                        <p>Nội dung chuyển khoản: <strong id="qrMessage">Mã đơn hàng của bạn</strong></p>
+                    </div>
+                    <button id="paymentConfirmedBtn" class="btn">Đã thanh toán</button>
+                </div>
+            </div>
 
+
+            <script>
+                let currentCartItems = []; 
+                document.addEventListener('DOMContentLoaded', async () => {
+                    // --- CÁC BIẾN DOM ELEMENT ---
+                    const customerProvince = document.getElementById('customerProvince');
+                    const customerDistrict = document.getElementById('customerDistrict');
+                    const customerWard = document.getElementById('customerWard');
+                    const checkoutProductList = document.getElementById('checkoutProductList');
+                    const subtotalSpan = document.getElementById('subtotal');
+                    const finalTotalSpan = document.getElementById('finalTotal');
+                    const voucherCodeInput = document.getElementById('voucherCode');
+                    const applyVoucherBtn = document.getElementById('applyVoucherBtn');
+                    const voucherMessage = document.getElementById('voucherMessage');
+                    const discountRow = document.getElementById('discountRow');
+                    const voucherDiscountSpan = document.getElementById('voucherDiscount');
+                    const checkoutForm = document.getElementById('checkoutForm');
+                    const qrModal = document.getElementById('qrModal');
+                    const closeModalBtn = qrModal ? qrModal.querySelector('.close-button') : null;
+                    const paymentConfirmedBtn = document.getElementById('paymentConfirmedBtn');
+                    const qrAmountSpan = document.getElementById('qrAmount');
+                    const qrImage = document.getElementById('qrImage'); // Thêm element QR image
+                    const qrMessage = document.getElementById('qrMessage'); // Thêm element QR message
+
+                    // --- CÁC BIẾN LƯU TRỮ TRẠNG THÁI ---
+                    let originalTotalAmount = 0;
+                    let appliedDiscount = 0;
+                    let currentOrderData = null;
+
+                    // --- HÀM CẬP NHẬT HIỂN THỊ TÓM TẮT ĐƠN HÀNG TRÊN UI ---
+                    function updateOrderSummary(cartItems) {
+                        let currentSubtotal = 0;
+                        checkoutProductList.innerHTML = ''; // Xóa danh sách cũ
+
+                        if (cartItems && cartItems.length > 0) {
+                            cartItems.forEach(item => {
+                                const itemTotal = parseFloat(item.productPrice) * parseInt(item.quantity);
+                                currentSubtotal += itemTotal;
+                                const li = document.createElement('li');
+                                li.innerHTML = `
+                                                <span class="product-name">${item.productName}</span>
+                                                <span class="product-quantity">x ${item.quantity}&nbsp;&nbsp;</span>
+                                                <span class="product-price">${itemTotal.toLocaleString('vi-VN')} VNĐ</span>
+                                            `;
+                                checkoutProductList.appendChild(li);
+                            });
+                        } else {
+                            checkoutProductList.innerHTML = '<li>Giỏ hàng trống.</li>';
+                        }
+
+                        originalTotalAmount = currentSubtotal;
+                        subtotalSpan.textContent = originalTotalAmount.toLocaleString('vi-VN') + ' VNĐ';
+
+                        const finalTotal = originalTotalAmount - appliedDiscount;
+                        finalTotalSpan.textContent = finalTotal.toLocaleString('vi-VN') + ' VNĐ';
+
+                        voucherDiscountSpan.textContent = appliedDiscount.toLocaleString('vi-VN') + ' VNĐ';
+                        if (appliedDiscount > 0) {
+                            discountRow.style.display = 'block';
+                        } else {
+                            discountRow.style.display = 'none';
+                        }
+                    }
+
+                    // --- HÀM TẢI GIỎ HÀNG TỪ BACKEND VÀ HIỂN THỊ TÓM TẮT ---
+                    async function loadCartAndDisplaySummary() {
+                        try {
+                            const response = await fetch('/get-cart'); // Gọi API từ backend để lấy giỏ hàng
+                            const result = await response.json();
+                            if (result.success && result.cart) {
+                                console.log('🛒 Giỏ hàng đã tải từ backend:', result.cart);
+                                updateOrderSummary(result.cart); // Cập nhật UI với giỏ hàng
+                            } else {
+                                console.error('Không thể tải giỏ hàng:', result.message);
+                                updateOrderSummary([]); // Hiển thị giỏ hàng trống
+                            }
+                        } catch (error) {
+                            console.error('Lỗi khi fetch giỏ hàng:', error);
+                            updateOrderSummary([]); // Hiển thị giỏ hàng trống nếu có lỗi kết nối
+                        }
+                    }
+                    loadCartAndDisplaySummary(); // Gọi hàm này khi trang được tải để hiển thị giỏ hàng
+
+                    // --- LOGIC CHO DROPDOWN ĐỊA CHỈ (Đảm bảo các API /api/provinces, /api/districts, /api/wards tồn tại ở backend) ---
+                    async function loadProvinces() {
+                        try {
+                            const response = await fetch('/api/provinces'); // API lấy danh sách tỉnh/thành
+                            const provinces = await response.json();
+                            customerProvince.innerHTML = '<option value="">Chọn Tỉnh/Thành phố</option>';
+                            provinces.forEach(p => {
+                                const option = document.createElement('option');
+                                option.value = p.name; // hoặc p.code tùy theo API của bạn
+                                option.textContent = p.name;
+                                customerProvince.appendChild(option);
+                            });
+                            customerProvince.disabled = false; // Bật lại dropdown sau khi tải xong
+                        } catch (error) {
+                            console.error('Lỗi khi tải danh sách tỉnh/thành phố:', error);
+                        }
+                    }
+
+                    async function loadDistricts(provinceName) {
+                        customerDistrict.innerHTML = '<option value="">Chọn Quận/Huyện</option>';
+                        customerWard.innerHTML = '<option value="">Chọn Phường/Xã</option>';
+                        customerDistrict.disabled = true; // Vô hiệu hóa cho đến khi có dữ liệu
+                        customerWard.disabled = true; // Vô hiệu hóa cho đến khi có dữ liệu
+                        if (!provinceName) return;
+
+                        try {
+                            const response = await fetch(`/api/districts?province=${encodeURIComponent(provinceName)}`); // API lấy danh sách quận/huyện
+                            const districts = await response.json();
+                            districts.forEach(d => {
+                                const option = document.createElement('option');
+                                option.value = d.name;
+                                option.textContent = d.name;
+                                customerDistrict.appendChild(option);
+                            });
+                            customerDistrict.disabled = false; // Bật lại
+                        } catch (error) {
+                            console.error('Lỗi khi tải danh sách quận/huyện:', error);
+                        }
+                    }
+
+                    async function loadWards(districtName) {
+                        customerWard.innerHTML = '<option value="">Chọn Phường/Xã</option>';
+                        customerWard.disabled = true; // Vô hiệu hóa cho đến khi có dữ liệu
+                        if (!districtName) return;
+
+                        try {
+                            const response = await fetch(`/api/wards?district=${encodeURIComponent(districtName)}`); // API lấy danh sách phường/xã
+                            const wards = await response.json();
+                            wards.forEach(w => {
+                                const option = document.createElement('option');
+                                option.value = w.name;
+                                option.textContent = w.name;
+                                customerWard.appendChild(option);
+                            });
+                            customerWard.disabled = false; // Bật lại
+                        } catch (error) {
+                            console.error('Lỗi khi tải danh sách phường/xã:', error);
+                        }
+                    }
+                    // Khởi tạo tải tỉnh/thành phố
+                    loadProvinces();
+
+                    // Thêm event listeners cho các dropdown địa chỉ
+                    customerProvince.addEventListener('change', (e) => loadDistricts(e.target.value));
+                    customerDistrict.addEventListener('change', (e) => loadWards(e.target.value));
+
+                    // --- LOGIC XỬ LÝ ÁP DỤNG VOUCHER KHI NHẤN NÚT "ÁP DỤNG" ---
+                    if (applyVoucherBtn) {
+                        applyVoucherBtn.addEventListener('click', async () => {
+                            const voucherCode = voucherCodeInput.value.trim();
+                            if (!voucherCode) {
+                                voucherMessage.textContent = 'Vui lòng nhập mã giảm giá.';
+                                voucherMessage.style.color = 'orange';
+                                return;
+                            }
+                            const customerEmail = document.getElementById('customerEmail').value;
+                            if (!customerEmail) {
+                                voucherMessage.textContent = 'Vui lòng nhập email để kiểm tra voucher.';
+                                voucherMessage.style.color = 'orange';
+                                return;
+                            }
+                            try {
+                                const response = await fetch('/apply-voucher', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ voucherCode, customerEmail, totalAmount: originalTotalAmount })
+                                });
+                                const result = await response.json();
+
+                                if (result.success) {
+                                    appliedDiscount = result.discountAmount;
+                                    voucherMessage.textContent = result.message;
+                                    voucherMessage.style.color = 'green';
+                                    loadCartAndDisplaySummary(); // ✅ Gọi lại hàm loadCart để cập nhật tổng tiền đúng
+                                    console.log('Voucher áp dụng thành công. Giảm giá:', appliedDiscount);
+                                } else {
+                                    appliedDiscount = 0;
+                                    voucherMessage.textContent = result.message;
+                                    voucherMessage.style.color = 'red';
+                                    loadCartAndDisplaySummary(); // ✅ Gọi lại để cập nhật lại tổng tiền nếu lỗi
+                                    console.log('❌ Voucher áp dụng thất bại:', result.message);
+                                }
+                            } catch (error) {
+                                console.error('Lỗi khi áp dụng voucher (Frontend):', error);
+                                voucherMessage.textContent = 'Lỗi kết nối khi áp dụng voucher. Vui lòng thử lại.';
+                                voucherMessage.style.color = 'red';
+                            }
+                        });
+                    }
+
+                    // --- LOGIC XỬ LÝ FORM ĐẶT HÀNG KHI NHẤN NÚT "ĐẶT HÀNG" ---
+                    if (checkoutForm) {
+                        checkoutForm.addEventListener('submit', async (event) => {
+                            event.preventDefault();
+                            const formData = new FormData(checkoutForm);
+                            const data = Object.fromEntries(formData.entries());
+
+                            data.appliedDiscount = appliedDiscount;
+                            data.finalTotalAmount = Math.max(originalTotalAmount - appliedDiscount, 0);
+
+                            console.log('🔗 Sending order data to backend:', data);
+
+                            try {
+                                const response = await fetch('/dat-hang', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify(data)
+                                });
+                                const result = await response.json();
+
+                                console.log('🔗 Phản hồi từ Backend (result):', result);
+
+                                if (result.success) {
+                                    if (result.paymentMethod === 'bank_transfer_qr') {
+                                        if (result.orderData && result.orderData.totalAmount !== undefined && result.orderData.totalAmount !== null) {
+                                            currentOrderData = result.orderData;
+                                            qrAmountSpan.textContent = parseFloat(currentOrderData.totalAmount).toLocaleString('vi-VN') + ' VNĐ';
+                                            // Cập nhật hình ảnh QR và nội dung chuyển khoản
+                                            if (qrImage) qrImage.src = result.orderData.qrCodeUrl || '/images/placeholder-qr.png'; // Đảm bảo backend trả về qrCodeUrl
+                                            if (qrMessage) qrMessage.textContent = `Mã đơn hàng: ${result.orderData.orderId}`; // Hoặc nội dung khác từ backend
+
+                                            if (qrModal) {
+                                                qrModal.style.display = 'block';
+                                            }
+                                            console.log('✅ Đã hiển thị modal QR.');
+                                        } else {
+                                            console.error('❌ Phản hồi QR từ backend thiếu orderData hoặc totalAmount:', result);
+                                            alert('Lỗi: Dữ liệu thanh toán QR không đầy đủ. Vui lòng thử lại.');
+                                        }
+                                    } else { // COD
+                                        alert('Đặt hàng thành công!');
+                                        window.location.href = result.redirectUrl || '/';
+                                    }
+                                } else {
+                                    alert(result.message || 'Đã xảy ra lỗi khi đặt hàng. Vui lòng thử lại.');
+                                }
+                            } catch (error) {
+                                console.error('❌ Lỗi khi gửi yêu cầu đặt hàng (Frontend):', error);
+                                alert('Không thể kết nối đến server để xử lý đơn hàng. Vui lòng kiểm tra kết nối mạng hoặc thử lại sau.');
+                            }
+                        });
+                    }
+
+                    // --- LOGIC ĐÓNG MODAL QR & XÁC NHẬN THANH TOÁN (NẾU CÓ MODAL QR) ---
+                    if (qrModal && closeModalBtn) {
+                        closeModalBtn.addEventListener('click', () => {
+                            qrModal.style.display = 'none';
+                        });
+                    }
+
+                    if (qrModal) {
+                        window.addEventListener('click', (event) => {
+                            if (event.target == qrModal) {
+                                qrModal.style.display = 'none';
+                            }
+                        });
+                    }
+
+                    if (paymentConfirmedBtn) {
+                        paymentConfirmedBtn.addEventListener('click', async () => {
+                            if (currentOrderData) {
+                                try {
+                                    currentOrderData.totalAmount = originalTotalAmount - appliedDiscount;
+
+                                    const response = await fetch('/confirm-qr-payment', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify(currentOrderData)
+                                    });
+                                    const result = await response.json();
+
+                                    if (result.success) {
+                                        alert('Thanh toán và đặt hàng thành công!');
+                                        window.location.href = result.redirectUrl || '/';
+                                    } else {
+                                        alert(result.message || 'Có lỗi xảy ra khi xác nhận thanh toán.');
+                                    }
+                                } catch (error) {
+                                    console.error('Lỗi khi xác nhận thanh toán QR:', error);
+                                    alert('Không thể kết nối server để xác nhận thanh toán.');
+                                }
+                            } else {
+                                alert('Không có dữ liệu đơn hàng để xác nhận.');
+                            }
+                        });
+                    }
+                });
+               </script>
+    </body>     
 </html>

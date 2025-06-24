@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= product.name %> - Chi tiết sản phẩm
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+        <main class="product-detail-page-content">
+            <div class="product-detail-container">
+                <div class="product-main-info">
+                    <div class="product-images">
+                        <img src="<%= product.image %>" alt="<%= product.name %>" class="main-product-image">
+                        <div class="thumbnail-images">
+                            <img src="/images/34.png" alt="Áo thun thumbnail 1" class="thumbnail-item">
+                            <img src="/images/35.png" alt="Áo thun thumbnail 2" class="thumbnail-item">
+                            <img src="/images/34.png" alt="Áo thun thumbnail 3" class="thumbnail-item">
+                        </div>
+                    </div>
+
+                    <div class="product-details">
+                        <h1>
+                            <%= product.name %>
+                        </h1>
+                        <p class="product-detail-price">
+                            <%= product.price.toLocaleString('vi-VN') %> VNĐ
+                        </p>
+
+                        <div class="product-options">
+                            <div class="option-group">
+                                <span>Số lượng:</span>
+                                <div class="quantity-control">
+                                    <button type="button" onclick="changeQuantity(-1)">-</button>
+                                    <input type="number" id="product-quantity" value="1" min="1" readonly>
+                                    <button type="button" onclick="changeQuantity(1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="/add-to-cart" method="POST" class="add-to-cart-detail-form">
+                            <input type="hidden" name="productId" value="<%= product._id %>">
+                            <input type="hidden" name="productName" value="<%= product.name %>">
+                            <input type="hidden" name="productPrice" value="<%= product.price %>">
+                            <input type="hidden" name="productImage" value="<%= product.image %>">
+                            <input type="hidden" name="quantity" id="form-quantity" value="1">
+                            <button type="submit" class="add-to-cart-btn-detail">THÊM VÀO GIỎ</button>
+                        </form>
+
+                        <div class="product-tabs">
+                            <div class="tab-header">
+                                <button class="tab-button active" onclick="openTab(event, 'MoTa')">Mô tả</button>
+                                <button class="tab-button" onclick="openTab(event, 'BangKichThuoc')">Bảng kích
+                                    thước</button>
+                                <button class="tab-button" onclick="openTab(event, 'DanhGia')">Đánh giá (5)</button>
+                            </div>
+                            <div id="MoTa" class="tab-content active">
+                                <p>
+                                    <%= product.description %>
+                                </p>
+                            </div>
+                            <div id="BangKichThuoc" class="tab-content">
+                                <p>Thông tin bảng kích thước sẽ được hiển thị ở đây.</p>
+                            </div>
+                            <div id="DanhGia" class="tab-content">
+                                <p>Các đánh giá của khách hàng sẽ được hiển thị ở đây.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="related-products-section">
+                    <h2>Sản phẩm gợi ý</h2>
+                    <div class="product-grid">
+                        <% if (suggestedProducts && suggestedProducts.length> 0) { %>
+                            <% suggestedProducts.forEach(function(sProduct) { %>
+                                <a href="/san-pham/<%= sProduct._id %>" class="product-item-link">
+                                    <div class="product-item">
+                                        <img src="<%= sProduct.image %>" alt="<%= sProduct.name %>">
+                                        <h3>
+                                            <%= sProduct.name %>
+                                        </h3>
+                                        <p class="product-price">
+                                            <%= sProduct.price.toLocaleString('vi-VN') %> VNĐ
+                                        </p>
+                                        <button class="buy-now-btn">Mua Ngay</button>
+                                    </div>
+                                </a>
+                                <% }); %>
+                                    <% } else { %>
+                                        <p>Không có sản phẩm gợi ý nào.</p>
+                                        <% } %>
+                    </div>
+                    <button class="view-more-btn" onclick="location.href='/'">Xem thêm</button>
+                </div>
+            </div>
+        </main>
+        <%- include('partials/footer') %>
+            <script>
+                function openTab(evt, tabName) {
+                    var i, tabcontent, tabbuttons;
+                    tabcontent = document.getElementsByClassName("tab-content");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tabbuttons = document.getElementsByClassName("tab-button");
+                    for (i = 0; i < tabbuttons.length; i++) {
+                        tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+                    }
+                    document.getElementById(tabName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                }
+                document.addEventListener("DOMContentLoaded", function () {
+                    document.getElementById("MoTa").style.display = "block";
+                    document.querySelector(".tab-button").classList.add("active");
+                });
+
+                function changeQuantity(change) {
+                    const quantityInput = document.getElementById('product-quantity');
+                    let currentQuantity = parseInt(quantityInput.value);
+                    currentQuantity += change;
+                    if (currentQuantity < 1) currentQuantity = 1;
+                    quantityInput.value = currentQuantity;
+                    document.getElementById('form-quantity').value = currentQuantity;
+                }
+            </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng của bạn - MoVa</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+        <main class="cart-page-content">
+            <div class="cart-container">
+                <h1>Giỏ hàng</h1>
+                <% if (cart && cart.length> 0) { %>
+                    <div class="cart-sections">
+                        <div class="cart-items-wrapper">
+                            <div class="cart-header">
+                                <span class="header-product">Sản phẩm</span>
+                                <span class="header-price">Giá</span>
+                                <span class="header-quantity">Số lượng</span>
+                                <span class="header-total">Tổng</span>
+                                <span class="header-actions"></span>
+                            </div>
+                            <div class="cart-items-list">
+                                <% cart.forEach(function(item) { %>
+                                    <div class="cart-item-row">
+                                        <div class="cart-product-info">
+                                            <img src="<%= item.productImage %>" alt="<%= item.productName %>"
+                                                class="cart-product-image">
+                                            <span class="cart-product-name">
+                                                <%= item.productName %>
+                                            </span>
+                                        </div>
+                                        <div class="cart-item-price">
+                                            <%= item.productPrice.toLocaleString('vi-VN') %> VNĐ
+                                        </div>
+                                        <div class="cart-item-quantity">
+                                            <form action="/update-cart-quantity" method="POST"
+                                                class="update-quantity-form">
+                                                <input type="hidden" name="productId" value="<%= item.productId %>">
+                                                <button type="submit" name="action" value="decrease"
+                                                    class="quantity-btn">-</button>
+                                                <input type="text" name="quantity" value="<%= item.quantity %>" readonly
+                                                    class="quantity-input">
+                                                <button type="submit" name="action" value="increase"
+                                                    class="quantity-btn">+</button>
+                                            </form>
+                                        </div>
+                                        <div class="cart-item-total">
+                                            <%= (item.productPrice * item.quantity).toLocaleString('vi-VN') %> VNĐ
+                                        </div>
+                                        <div class="cart-item-actions">
+                                            <form action="/remove-from-cart" method="POST">
+                                                <input type="hidden" name="productId" value="<%= item.productId %>">
+                                                <button type="submit" class="remove-item-btn"><i
+                                                        class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <% }); %>
+                            </div>
+                        </div>
+
+                        <div class="cart-summary">
+                            <h2>Tổng giỏ hàng</h2>
+                            <div class="summary-line">
+                                <span>Tổng</span>
+                                <span class="summary-value">
+                                    <%= subtotal.toLocaleString('vi-VN') %> VNĐ
+                                </span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Thành tiền</span>
+                                <span class="summary-value final-total">
+                                    <%= subtotal.toLocaleString('vi-VN') %> VNĐ
+                                </span>
+                            </div>
+                            <button class="checkout-btn" onclick="location.href='/thanh-toan'">THANH TOÁN</button>
+                        </div>
+                    </div>
+                    <% } else { %>
+                        <div class="empty-cart-state">
+                            <p class="empty-cart-message">Giỏ hàng của bạn đang trống.</p>
+                            <button class="back-to-shop-btn" onclick="location.href='/'">Tiếp tục mua sắm</button>
+                        </div>
+                        <% } %>
+            </div>
+        </main>
+        <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán đơn hàng - MoVa</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+        <main class="order-success-page-content">
+            <div class="order-success-container">
+                <h1>Đặt hàng thành công!</h1>
+                <p class="success-message">Cảm ơn bạn đã mua hàng tại cửa hàng của chúng tôi.</p>
+                <% if (order) { %>
+                    <div class="order-details-summary">
+                        <h2>Chi tiết đơn hàng của bạn</h2>
+                        <p><strong>Mã đơn hàng:</strong>
+                            <%= order._id %>
+                        </p>
+                        <p><strong>Ngày đặt hàng:</strong>
+                            <%= order.orderDate.toLocaleDateString('vi-VN') %>
+                        </p>
+                        <p><strong>Tổng tiền:</strong>
+                            <%= order.totalAmount.toLocaleString('vi-VN') %> VNĐ
+                        </p>
+                        <p><strong>Phương thức thanh toán:</strong>
+                            <% if (order.paymentMethod==='cod' ) { %>Thanh toán khi nhận hàng<% } %>
+                                    <% if (order.paymentMethod==='bank_transfer_qr' ) { %>Chuyển khoản ngân hàng<% } %>
+                        </p>
+                        <p><strong>Trạng thái:</strong>
+                            <%= order.status %>
+                        </p>
+    
+                        <h3>Thông tin khách hàng:</h3>
+                        <p><strong>Tên:</strong>
+                            <%= order.customerName %>
+                        </p>
+                        <p><strong>Email:</strong>
+                            <%= order.customerEmail %>
+                        </p>
+                        <p><strong>Số điện thoại:</strong>
+                            <%= order.customerPhone %>
+                        </p>
+                        <p><strong>Địa chỉ:</strong>
+                            <%= order.customerAddress %>
+                        </p>
+    
+                        <h3>Các sản phẩm đã đặt:</h3>
+                        <ul class="ordered-items-list">
+                            <% order.items.forEach(item=> { %>
+                                <li>
+                                    <span>
+                                        <%= item.productName %> x <%= item.quantity %>
+                                    </span>
+                                    <span>
+                                        <%= (item.productPrice * item.quantity).toLocaleString('vi-VN') %> VNĐ
+                                    </span>
+                                </li>
+                                <% }); %>
+                        </ul>
+                    </div>
+                    <% } else { %>
+                        <p>Không tìm thấy thông tin đơn hàng.</p>
+                        <% } %>
+    
+                           <a href="/" class="btn back-to-home">Tiếp tục mua sắm</a>
+            </div>
+        </main>
+        <%- include('partials/footer') %>
+</body>

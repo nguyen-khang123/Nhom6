@@ -13,10 +13,23 @@
             </ul>
         </nav>
         <div class="nav-icons">
-            <i class="fas fa-search"></i>
+            <div class="search-wrapper">
+                
+                <form action="/" method="GET" class="search-form">
+                    <input type="text" name="search" placeholder="Tìm kiếm..."  value="<%= searchQuery %>">
+                    <i class="fas fa-search"></i>
+                    <button type="submit" class="search-button">Tìm</button>         
+                </form>
+            </div>
             <i class="far fa-user"></i>
             <i class="far fa-heart"></i>
-            <a href="/thanh-toan"><i class="fa-regular fa-credit-card"></i></a>
-        </div>
+            <a href="/gio-hang" class="cart-icon-link"> 
+                <i class="fa-solid fa-cart-plus"></i>
+                <% if (cartItemCount> 0) { %>
+                    <span class="cart-item-count">
+                        <%= cartItemCount %>
+                    </span>
+                    <% } %></a>
+            </div>
     </div>
 </header>
